@@ -6,3 +6,5 @@ Current intended features:
  - Built in setting system, intended to be able to be changed mid song without reloading the song
  - Pause menu class
  - Countdown class
+ - Note positioning
+ - Loading screens
