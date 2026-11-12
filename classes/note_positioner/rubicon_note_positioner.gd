@@ -1,0 +1,2 @@
+class_name RubiconLevelNotePositioner
+extends Node

@@ -1,6 +1,7 @@
 @tool
 extends EditorPlugin
 
+const SETTINGS_GLOBAL_PATH : String = "res://addons/rubicon_extra_aditions/classes/settings/settings_global.gd"
 
 func _enable_plugin() -> void:
 	# Add autoloads here.
@@ -13,10 +14,7 @@ func _disable_plugin() -> void:
 
 
 func _enter_tree() -> void:
-	# Initialization of the plugin goes here.
-	pass
-
+	add_autoload_singleton("SettingsGlobal", SETTINGS_GLOBAL_PATH)
 
 func _exit_tree() -> void:
-	# Clean-up of the plugin goes here.
-	pass
+	remove_autoload_singleton("SettingsGlobal")

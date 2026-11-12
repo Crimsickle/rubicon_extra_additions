@@ -8,13 +8,6 @@ var _level : RubiconLevel
 
 signal countdown_finished
 
-func _notification(notif : int) -> void:
-	match notif:
-		NOTIFICATION_PARENTED:
-			var parent : Node = get_parent()
-			if parent is RubiconLevel:
-				_level = parent
-
 func begin_countdown() -> void:
 	if !_level or !_level.clock or !_level.clock.animation_player:
 		return
@@ -27,11 +20,15 @@ func play_song() -> void:
 	if !_level or !_level.clock or !_level.clock.animation_player:
 		return
 	
-	_level.clock.animation_player.play(animation_name)
+	if _level.clock.animation_player.has_animation(animation_name):
+		_level.clock.animation_player.play(animation_name)
 
 func _ready() -> void:
-	countdown_finished.connect(play_song)
-	begin_countdown()
+	if countdown_finished.is_connected(play_song) == false:
+		countdown_finished.connect(play_song)
+	
+	if Engine.is_editor_hint() == false:
+		begin_countdown()
 
 
 func _get_property_list() -> Array[Dictionary]:
@@ -48,3 +45,10 @@ func _get_property_list() -> Array[Dictionary]:
 		})
 	
 	return properties
+
+func _notification(notif : int) -> void:
+	match notif:
+		NOTIFICATION_PARENTED:
+			var parent : Node = get_parent()
+			if parent is RubiconLevel:
+				_level = parent
