@@ -1,6 +1,7 @@
 class_name PauseMenu
 extends CanvasLayer
 
+@export var button_scene : PackedScene
 
 func pause():
 	visible = true

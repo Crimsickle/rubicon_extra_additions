@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cfh6reo1jiicq"]
+
+[ext_resource type="Script" uid="uid://jq28yffq40m7" path="res://addons/rubicon_extra_aditions/classes/pause_menu/pause_menu.gd" id="1_qo4mn"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=285936990]
+script = ExtResource("1_qo4mn")
+metadata/_custom_type_script = "uid://jq28yffq40m7"

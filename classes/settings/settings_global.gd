@@ -101,9 +101,6 @@ func set_setting(type : setting_types, value : Variant) -> void:
 func get_setting(type : setting_types) -> Variant:
 	return current_settings.get(type)
 
-func get_all_settings() -> Dictionary[setting_types, Variant]:
-	return current_settings
-
 func get_key_inputs() -> RubiconLevelNoteInputMap:
 	var new_input_map : RubiconLevelNoteInputMap = RubiconLevelNoteInputMap.new()
 	
