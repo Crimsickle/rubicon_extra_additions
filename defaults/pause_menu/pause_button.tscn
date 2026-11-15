@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dbvopmwk5eiit"]
+
+[ext_resource type="Script" uid="uid://cnxeceklnxf1p" path="res://addons/rubicon_extra_aditions/classes/pause_menu/pause_button.gd" id="1_q87n1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m5hm1"]
+font_size = 48
+
+[node name="PauseButton" type="Control" unique_id=1538278079 node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 613.0
+offset_bottom = 100.0
+script = ExtResource("1_q87n1")
+label = NodePath("Label")
+metadata/_custom_type_script = "uid://cnxeceklnxf1p"
+
+[node name="Label" type="Label" parent="." unique_id=1521449186]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NULL"
+label_settings = SubResource("LabelSettings_m5hm1")
+vertical_alignment = 1
