@@ -2,34 +2,34 @@
 
 [ext_resource type="Script" uid="uid://cwlytstopc3p6" path="res://addons/rubicon_extra_aditions/defaults/pause_menu/pause_menu.gd" id="1_f6ynn"]
 [ext_resource type="PackedScene" uid="uid://dbvopmwk5eiit" path="res://addons/rubicon_extra_aditions/defaults/pause_menu/pause_button.tscn" id="2_f6ynn"]
-[ext_resource type="Script" uid="uid://bb5638nglpupq" path="res://addons/rubicon_extra_aditions/classes/pause_menu/pause_button_data.gd" id="2_xcqgj"]
+[ext_resource type="Script" uid="uid://bb5638nglpupq" path="res://addons/rubicon_extra_aditions/classes/pause_menu/pause_button_data.gd" id="3_f6ynn"]
 
-[sub_resource type="Resource" id="Resource_qo4mn"]
+[sub_resource type="Resource" id="Resource_y6wax"]
 resource_name = "Resume"
-script = ExtResource("2_xcqgj")
+script = ExtResource("3_f6ynn")
 button_text = "Resume"
 button_function = "unpause"
 metadata/_custom_type_script = "uid://bb5638nglpupq"
 
-[sub_resource type="Resource" id="Resource_y6wax"]
-resource_name = "Settings"
-script = ExtResource("2_xcqgj")
-button_text = "Settings"
-button_function = "unpause"
-metadata/_custom_type_script = "uid://bb5638nglpupq"
-
-[sub_resource type="Resource" id="Resource_f6ynn"]
+[sub_resource type="Resource" id="Resource_gd4mu"]
 resource_name = "Restart"
-script = ExtResource("2_xcqgj")
+script = ExtResource("3_f6ynn")
 button_text = "Restart"
-button_function = "unpause"
+button_function = "restart"
 metadata/_custom_type_script = "uid://bb5638nglpupq"
 
-[sub_resource type="Resource" id="Resource_fxa61"]
+[sub_resource type="Resource" id="Resource_fkl2l"]
+resource_name = "Settings"
+script = ExtResource("3_f6ynn")
+button_text = "Settings"
+button_function = "settings"
+metadata/_custom_type_script = "uid://bb5638nglpupq"
+
+[sub_resource type="Resource" id="Resource_0cyru"]
 resource_name = "Menu"
-script = ExtResource("2_xcqgj")
+script = ExtResource("3_f6ynn")
 button_text = "Menu"
-button_function = "unpause"
+button_function = "menu"
 metadata/_custom_type_script = "uid://bb5638nglpupq"
 
 [sub_resource type="LabelSettings" id="LabelSettings_m5hm1"]
@@ -41,7 +41,7 @@ layer = 999
 script = ExtResource("1_f6ynn")
 button_scene = ExtResource("2_f6ynn")
 button_container = NodePath("VBoxContainer")
-button_info = Array[ExtResource("2_xcqgj")]([SubResource("Resource_qo4mn"), SubResource("Resource_y6wax"), SubResource("Resource_f6ynn"), SubResource("Resource_fxa61")])
+button_info = Array[ExtResource("3_f6ynn")]([SubResource("Resource_y6wax"), SubResource("Resource_gd4mu"), SubResource("Resource_fkl2l"), SubResource("Resource_0cyru")])
 metadata/_custom_type_script = "uid://jq28yffq40m7"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1112138135]

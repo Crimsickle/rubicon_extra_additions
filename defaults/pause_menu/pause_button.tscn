@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbvopmwk5eiit"]
 
-[ext_resource type="Script" uid="uid://cnxeceklnxf1p" path="res://addons/rubicon_extra_aditions/classes/pause_menu/pause_button.gd" id="1_q87n1"]
+[ext_resource type="Script" uid="uid://bvebqedtkfrbk" path="res://addons/rubicon_extra_aditions/defaults/pause_menu/pause_button.gd" id="1_q87n1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m5hm1"]
 font_size = 48

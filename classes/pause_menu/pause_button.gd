@@ -11,12 +11,19 @@ extends Control
 
 var button_index : int = -1
 var pause_menu : PauseMenu
+var hovered : bool = false
 
 func hover():
-	pass
+	if hovered == true:
+		return
+	
+	hovered = true
 
 func unhover():
-	pass
+	if hovered == false:
+		return
+	
+	hovered = false
 
 func update():
 	if label:

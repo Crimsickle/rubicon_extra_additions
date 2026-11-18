@@ -12,7 +12,7 @@ func begin_countdown() -> void:
 	if !_level or !_level.clock or !_level.clock.animation_player:
 		return
 	
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false, false, false).timeout
 	
 	countdown_finished.emit()
 
@@ -35,7 +35,6 @@ func _get_property_list() -> Array[Dictionary]:
 	var properties : Array[Dictionary] = []
 	
 	if _level and _level.clock and _level.clock.animation_player:
-		
 		properties.append({
 			name = "animation_name",
 			type = TYPE_STRING,

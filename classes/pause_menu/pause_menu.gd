@@ -2,6 +2,11 @@
 class_name PauseMenu
 extends CanvasLayer
 
+var current_paused : bool = false
+
+@export var horizontal_input : bool = false
+@export var key_input_reversed : bool = false
+
 @export_group("Buttons", "button_")
 @export var button_mouse_input : bool = true
 @export var button_keyboard_input : bool = true
@@ -35,6 +40,8 @@ func button_valid(index : int) -> bool:
 
 
 func draw_buttons():
+	clear_buttons()
+	
 	var current_index : int = 0
 	
 	for info in button_info:
@@ -49,23 +56,32 @@ func draw_buttons():
 		current_index += 1
 
 func clear_buttons():
-	pass
+	for button in current_buttons:
+		if is_instance_valid(button) == true and button.is_queued_for_deletion() == false:
+			button.queue_free()
+	
+	current_buttons.clear()
 
 
 func update_button_info():
 	var index : int = 0
+	
 	for info in button_info:
-		if info and is_instance_valid(info) and info.is_queued_for_deletion() == false:
+		if info and is_instance_valid(info) == true and info.is_queued_for_deletion() == false:
 			info.index = index
 			info.pause_menu = self
 		
 		index += 1
 
 func pause():
+	selected_button = 0
+	
+	current_paused = true
 	visible = true
 	get_tree().paused = true
 
 func unpause():
+	current_paused = false
 	visible = false
 	get_tree().paused = false
 
@@ -77,3 +93,24 @@ func _ready() -> void:
 	if Engine.is_editor_hint() == false:
 		draw_buttons()
 		unpause()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed == false:
+			return
+		
+		if current_paused == false:
+			if event.keycode == SettingsList.game_pause:
+				pause()
+		else:
+			var mult : int = 1
+			if key_input_reversed == true: mult = -1
+			
+			if (horizontal_input == true and event.keycode == SettingsList.menu_left) or (horizontal_input == false and event.keycode == SettingsList.menu_up):
+				selected_button -= 1 * mult
+			elif (horizontal_input == true and event.keycode == SettingsList.menu_right) or (horizontal_input == false and event.keycode == SettingsList.menu_down):
+				selected_button += 1 * mult
+			
+			if event.keycode == SettingsList.menu_confirm:
+				if button_valid(selected_button) == true and button_info.get(selected_button) != null and has_method(button_info.get(selected_button).button_function) == true:
+					call(button_info.get(selected_button).button_function)

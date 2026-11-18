@@ -44,4 +44,7 @@ func _get_property_list() -> Array[Dictionary]:
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_POSTINITIALIZE:
-			resource_name = button_text
+			set_resource_name()
+
+func set_resource_name() -> void:
+	resource_name = button_text
